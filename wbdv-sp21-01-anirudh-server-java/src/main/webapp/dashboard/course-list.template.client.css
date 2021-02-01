@@ -49,6 +49,11 @@ body {
     color: red;
 }
 
+.container .col-1 {
+    position: absolute;
+    right: 60px;
+}
+
 .fa-users {
     color: dimgrey;
 }
