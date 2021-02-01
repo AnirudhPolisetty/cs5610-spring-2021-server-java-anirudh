@@ -50,8 +50,7 @@ body {
 }
 
 .container .col-1 {
-    position: absolute;
-    right: 60px;
+    margin-left: auto;
 }
 
 .fa-users {
