@@ -52,11 +52,6 @@ body {
     margin: 4px 2px;
 }
 
-.modules {
-    height: 100vh;
-    max-width:100%
-}
-
 .modules .col-4 {
     border: none;
     padding: 80px 20px;
@@ -75,3 +70,14 @@ body {
     background-color: #606060;
     color: white;
 }
+
+.wbdv-padding-5px {
+    padding: 5px;
+}
+
+.wbdv-sticky-child {
+    width: 100%;
+    z-index: 1;
+    font-family: "Open Sans", sans-serif;
+}
+
