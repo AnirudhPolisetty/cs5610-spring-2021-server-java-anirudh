@@ -1,0 +1,12 @@
+.body {
+    font-family: "Open Sans", sans-serif;
+}
+
+.header, .wbdv-thead {
+    background-color: #323975;
+    color: white;
+}
+
+.wbdv-tbody {
+    background-color: #D5F3FE;
+}
