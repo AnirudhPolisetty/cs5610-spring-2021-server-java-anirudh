@@ -24,7 +24,7 @@ function AdminUserServiceClient() {
                 return response.json()
             })
     }
-    //function findUserById(userId) { … }
+
     function updateUser(userId, user) {
         return fetch(`${self.url}/${userId}`, {
             method: 'PUT',

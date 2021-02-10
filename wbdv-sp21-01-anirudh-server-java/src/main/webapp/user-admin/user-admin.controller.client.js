@@ -2,17 +2,22 @@
     var $usernameFld, $passwordFld;
     var $firstNameFld, $lastNameFld, $roleFld;
     var $removeBtn, $editBtn, $createBtn, $updateBtn;
-    var $userRowTemplate, $tbody;
+    var $tbody;
     var userService = new AdminUserServiceClient();
     var users = [];
     var selectedUser = null;
 
     function createUser(user) {
-        userService.createUser(user)
-            .then(function (actualUser) {
-                users.push(actualUser)
-                renderUsers(users)
-            })
+        if(user.password === "" || user.firstName === "" || user.lastName === "" || user.username === "") {
+            alert('Please fill the fields!')
+        }
+        else {
+            userService.createUser(user)
+                .then(function (actualUser) {
+                    users.push(actualUser)
+                    renderUsers(users)
+                })
+        }
     }
 
     function deleteUser(event) {
@@ -43,7 +48,6 @@
     }
 
     function updateUser() {
-        //console.log(selectedUser)
         selectedUser.username = $usernameFld.val()
         selectedUser.password = $passwordFld.val()
         selectedUser.firstName = $firstNameFld.val()
@@ -51,6 +55,7 @@
         selectedUser.role = $roleFld.val()
         //selectedUser._nuid = "001029510"
         //selectedUser._domain = "users"
+        //console.log(selectedUser._id)
         userService.updateUser(selectedUser._id, selectedUser)
             .then(function (status) {
                 //console.log(status)
@@ -73,7 +78,7 @@
                 .append(`
                     <tr>
                         <td>${user.username}</td>
-                        <td>${user.password}</td>
+                        <td class="wbdv-body-password">${user.password}</td>
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>
                         <td>${user.role}</td>
@@ -86,6 +91,8 @@
                     </tr>
                 `)
         }
+        $(".wbdv-body-password").empty()
+        $tbody.css("background-color","#D5F3FE")
         $(".wbdv-remove")
             .click(deleteUser)
         $(".wbdv-edit")
@@ -112,6 +119,7 @@
         $removeBtn = $(".wbdv-remove");
         $editBtn = $(".wbdv-edit");
         $updateBtn = $(".wbdv-update");
+        $searchBtn = $(".wbdv-search");
         $tbody = $(".wbdv-tbody");
         //$userRowTemplate = $(".wbdv-template");
 
